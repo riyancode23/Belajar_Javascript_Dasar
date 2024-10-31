@@ -15,3 +15,5 @@ Materi :
 3. Javascript Standard Library (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 4. Javascript Modules
 5. Javascript DOM
+6. Javascript Async
+7. Studi Kasus Javascript Aplikasi Todolist
