@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Html</title>
+</head>
+<body>
+    <p id="content">
+        <script>
+            console.info("hello world");
+        </script>
+        <b>Programmer</b>
+    </p>
+
+    <div id="artikel" style="width: 200px; height: 100px; background-color: darkblue;" ></div>
+    <script>
+
+        const content = document.getElementById("content");
+        console.info(content.innerHTML);
+
+        const artikel = document.getElementById("artikel");
+        artikel.innerHTML ="<p style='color: white;' >Saya adalah Programmer Profesional</p>";
+
+
+
+
+    </script>
+</body>
+</html>
