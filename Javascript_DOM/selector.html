@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+</head>
+<body>
+    <p>This is text</p>
+    
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <ul>
+    <li class="menuItem"> menuItem</li>
+    <li class="menuItem">menuItem</li>
+    <li id="menu2">menu2</li>
+  </ul>
+
+  <div class="riyan">Riyan</div>
+  <div class="fikri">Fikri</div>
+  <div class="raffan"> Bagus Winarto Kusumo</div>
+
+    <script>
+        // universal selector
+        const elements = document.querySelectorAll("*");
+        console.info(elements);
+
+        // selector type
+        const list = document.querySelectorAll("li");
+        console.info(list);
+
+        // selector class
+        const menuItem = document.querySelectorAll(".menuitem");
+        console.info(menuItem);
+
+        // selector Id
+        const menuItemId = document.querySelectorAll("#menu2");
+        console.info(menuItemId);
+
+        // selector attribute (select ke attribute class pada tag html)
+        const attr = document.querySelectorAll("[class]");
+        console.info(attr);
+        // selector attribute (select ke attribute class pada tag html)
+        const attrOperator = document.querySelectorAll("[class^='Bagus']");
+        console.info(attrOperator);
+    </script>
+</body>
+</html>
