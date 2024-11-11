@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Response status</title>
+</head>
+
+<body>
+    <label><b>acces_Token</b></label> :
+    <label id="respon"></label><br>
+    <label><b>name</b></label> :
+    <label id="respon1"></label><br>
+    <label><b>status</b></label> :
+    <label id="respon2"></label>
+    <script>
+
+        function displayResponse(json) {
+            const token = document.getElementById("respon");
+            token.textContent = json.acces_Token;
+            const data_name = document.getElementById("respon1");
+            data_name.textContent = json.name;
+            const status = document.getElementById("respon2");
+            status.textContent = json.status;
+        }
+
+        function displayResponseErr(ajax) {
+            const token = document.getElementById("respon");
+            token.textContent =  `json.acces_Token Error ${ajax.status}`;
+            const data_name = document.getElementById("respon1" );
+            data_name.textContent = "json.name Error " + ajax.status;
+            const status = document.getElementById("respon2");
+            status.textContent = "json.status Error "  + ajax.status;
+        }
+
+        const ajax = new XMLHttpRequest();
+        // Benar
+        ajax.open('GET', "api/hello.json");
+        // Salah
+        //ajax.open('GET', "api/hellovbc.json");
+        ajax.addEventListener("load", function () {
+            if (ajax.status == 200) {
+                const json = JSON.parse(ajax.responseText);
+                displayResponse(json);
+            } else {
+                displayResponseErr(ajax);
+            }
+
+        });
+
+        ajax.send();
+    </script>
+</body>
+
+</html>

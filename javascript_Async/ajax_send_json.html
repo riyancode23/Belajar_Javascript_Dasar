@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Send JSON</title>
+</head>
+
+<body>
+    <form>
+        <label for="username">Username:
+            <input type="text" name="username" id="username">
+        </label>
+        <br>
+        <label for="password">Password:
+            <input type="password" name="password" id="password">
+        </label>
+        <br>
+        <input type="button" value="Login" id="login">
+    </form>
+    <h1 id="response"></h1>
+    <script>
+        function doLogin() {
+            const ajax = new XMLHttpRequest();
+            ajax.open('POST', "https://httpbin.org/post");
+            ajax.onload = function () {
+                const response = document.getElementById("response");
+                response.textContent = ajax.responseText;
+            }
+            ajax.setRequestHeader("Content-Type", "application/json");
+
+            const json = {
+                username: document.getElementById("username").Value,
+                password: document.getElementById("password").Value
+            }
+
+            ajax.send(JSON.stringify(json));
+        }
+
+        document.getElementById("login").onclick = doLogin;
+        
+    </script>
+</body>
+
+</html>

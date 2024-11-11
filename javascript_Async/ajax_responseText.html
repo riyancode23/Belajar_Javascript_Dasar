@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Response Text</title>
+</head>
+<body>
+    <label> acces_Token</label> : 
+    <label id="respon"></label><br>
+    <label> name</label> : 
+    <label id="respon1"></label><br>
+    <label> status</label> : 
+    <label id="respon2"></label>
+    <script>
+       const ajax = new XMLHttpRequest();
+       ajax.open('GET', "api/hello.json");
+        ajax.addEventListener("load", function () {
+            const json = JSON.parse(ajax.responseText);
+
+            const token = document.getElementById("respon");
+            token.textContent = json.acces_Token;
+            const data_name = document.getElementById("respon1");
+            data_name.textContent = json.name;
+            const status = document.getElementById("respon2");
+            status.textContent = json.status;
+        });
+
+       ajax.send();
+    </script>
+</body>
+</html>
